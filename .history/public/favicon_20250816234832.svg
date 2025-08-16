@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" aria-label="ASVALUE Monogram Cart">
+  <defs>
+    <style>
+      .bg { fill: #000; } /* Black background */
+      .stroke-white { stroke: #fff; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .stroke-yellow { stroke: #facc15; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .wheel-white { fill: #fff; }
+      .wheel-yellow { fill: #facc15; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="64" height="64" rx="14" ry="14" class="bg"/>
+  
+  <!-- Shopping Cart Outline -->
+  <polyline points="18,44 28,22 38,44" class="stroke-white"/>
+  <polyline points="24,38 32,52 40,38" class="stroke-yellow"/>
+  <rect x="23" y="28" width="18" height="9" rx="2" class="stroke-white"/>
+  
+  <!-- Wheels -->
+  <circle cx="27" cy="54" r="3" class="wheel-white"/>
+  <circle cx="37" cy="54" r="3" class="wheel-yellow"/>
+</svg>

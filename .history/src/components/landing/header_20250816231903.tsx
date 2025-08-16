@@ -2,8 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Zap } from 'lucide-react'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -12,31 +11,28 @@ export default function Header() {
     <header className='fixed top-0 z-50 w-full border-b border-gray-200 bg-white/70 backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/70'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         <div className='flex h-16 items-center justify-between'>
-          {/* Logo with Favicon */}
+          {/* Attractive Gradient Logo */}
           <Link href='/' className='flex items-center space-x-3'>
-            <div className='relative flex h-10 w-10 transform items-center justify-center transition-all duration-300 hover:scale-105'>
-              <Image
-                src='/favicon.png'
-                alt='ASVALUE Logo'
-                width={40}
-                height={40}
-                className='h-20 w-20 object-contain'
-                priority
-              />
+            <div className='relative flex h-10 w-10 transform items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 via-blue-500 to-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:from-blue-500 dark:via-blue-600 dark:to-blue-400'>
+              {/* Gradient overlay for more depth */}
+              <div className='absolute inset-0 rounded-xl bg-gradient-to-br from-blue-600/90 via-blue-500/70 to-transparent dark:from-blue-500/90 dark:via-blue-600/70'></div>
+              <Zap className='relative h-6 w-6 text-white drop-shadow-sm' />
+              {/* Shine effect */}
+              <div className='absolute left-1 top-1 h-3 w-3 rounded-full bg-white/30 blur-sm'></div>
             </div>
             <div className='flex flex-col'>
-              <span className='bg-gradient-to-r  bg-clip-text text-xl font-bold text-WHITE'>
+              <span className='bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-xl font-bold text-transparent dark:from-blue-400 dark:to-blue-600'>
                 ASVALUE
               </span>
               <span className='-mt-1 text-xs text-gray-500 dark:text-gray-400'>
-                AI E-COMMERCE SOCIAL PLATFORM
+                AI Sales Platform
               </span>
             </div>
           </Link>
 
           {/* Desktop CTA Button */}
           <div className='hidden items-center space-x-4 md:flex'>
-            <button className='rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2.5 font-extrabold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:from-blue-700 hover:to-blue-800 hover:shadow-xl'>
+            <button className='rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-2.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:from-blue-700 hover:to-blue-800 hover:shadow-xl'>
               Sign Up for Free
             </button>
           </div>

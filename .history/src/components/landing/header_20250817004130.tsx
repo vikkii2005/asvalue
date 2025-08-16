@@ -28,7 +28,7 @@ export default function Header() {
               <span className='bg-gradient-to-r  bg-clip-text text-xl font-bold text-WHITE'>
                 ASVALUE
               </span>
-              <span className='-mt-1 text-xs text-gray-500 dark:text-gray-400'>
+              <span className='-mt-1 text-sm text-gray-500 dark:text-gray-400'>
                 AI E-COMMERCE SOCIAL PLATFORM
               </span>
             </div>

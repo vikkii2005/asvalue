@@ -20,23 +20,23 @@ export default function Header() {
                 alt='ASVALUE Logo'
                 width={40}
                 height={40}
-                className='h-20 w-20 object-contain'
+                className='h-15 w-15 object-contain'
                 priority
               />
             </div>
             <div className='flex flex-col'>
-              <span className='bg-gradient-to-r  bg-clip-text text-xl font-bold text-WHITE'>
+              <span className='bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-xl font-bold text-transparent dark:from-blue-400 dark:to-blue-600'>
                 ASVALUE
               </span>
               <span className='-mt-1 text-xs text-gray-500 dark:text-gray-400'>
-                AI E-COMMERCE SOCIAL PLATFORM
+                AI Sales Platform
               </span>
             </div>
           </Link>
 
           {/* Desktop CTA Button */}
           <div className='hidden items-center space-x-4 md:flex'>
-            <button className='rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2.5 font-extrabold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:from-blue-700 hover:to-blue-800 hover:shadow-xl'>
+            <button className='rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-2.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:from-blue-700 hover:to-blue-800 hover:shadow-xl'>
               Sign Up for Free
             </button>
           </div>

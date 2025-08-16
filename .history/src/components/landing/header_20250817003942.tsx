@@ -29,7 +29,7 @@ export default function Header() {
                 ASVALUE
               </span>
               <span className='-mt-1 text-xs text-gray-500 dark:text-gray-400'>
-                AI E-COMMERCE SOCIAL PLATFORM
+                AI E-commerce Social Platform
               </span>
             </div>
           </Link>
