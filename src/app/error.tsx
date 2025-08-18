@@ -20,15 +20,15 @@ export default function Error({
   return (
     <div className='flex min-h-screen items-center justify-center'>
       <div className='mx-auto max-w-md text-center'>
-        <h2 className='text-foreground text-2xl font-bold'>
+        <h2 className='text-2xl font-bold text-foreground'>
           Something went wrong!
         </h2>
-        <p className='text-muted-foreground mt-2'>
+        <p className='mt-2 text-muted-foreground'>
           We&apos;re sorry, but something unexpected happened.
         </p>
         <button
           onClick={reset}
-          className='bg-primary text-primary-foreground hover:bg-primary/90 mt-4 inline-flex h-9 items-center justify-center rounded-md px-8 text-sm font-semibold shadow transition-colors'
+          className='mt-4 inline-flex h-9 items-center justify-center rounded-md bg-primary px-8 text-sm font-semibold text-primary-foreground shadow transition-colors hover:bg-primary/90'
         >
           Try again
         </button>

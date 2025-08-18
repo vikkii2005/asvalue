@@ -44,7 +44,7 @@ export default function HowItWorks() {
             ⚡ Simple 3-Step Process
           </div>
 
-          <h2 className='mb-6 text-4xl font-bold text-gray-900 md:text-5xl dark:text-white'>
+          <h2 className='mb-6 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl'>
             From Product to
             <span className='block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-purple-400 dark:to-green-400'>
               Sales Machine

@@ -25,7 +25,7 @@ export default function Header() {
               />
             </div>
             <div className='flex flex-col'>
-              <span className='bg-gradient-to-r  bg-clip-text text-xl font-bold text-WHITE'>
+              <span className='text-BLACK bg-gradient-to-r bg-clip-text text-xl font-bold'>
                 ASVALUE
               </span>
               <span className='-mt-1 text-xs text-gray-500 dark:text-gray-400'>
@@ -34,16 +34,18 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop CTA Button */}
+          {/* Desktop CTA Button - CONNECTED TO AUTH! */}
           <div className='hidden items-center space-x-4 md:flex'>
-            <button className='rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2.5 font-extrabold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:from-blue-700 hover:to-blue-800 hover:shadow-xl'>
-              Sign Up for Free
-            </button>
+            <Link href='/auth/signin'>
+              <button className='rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2.5 font-extrabold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:from-blue-700 hover:to-blue-800 hover:shadow-xl'>
+                Sign Up for Free
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className='rounded-lg p-2 transition-colors hover:bg-gray-100 md:hidden dark:hover:bg-gray-800'
+            className='rounded-lg p-2 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 md:hidden'
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label='Toggle menu'
           >
@@ -70,13 +72,15 @@ export default function Header() {
                   </p>
                 </div>
 
-                {/* Sign Up Button */}
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className='block w-full rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 text-center text-base font-medium text-white shadow-lg transition-all duration-300 hover:from-blue-700 hover:to-blue-800'
-                >
-                  Sign Up for Free
-                </button>
+                {/* Mobile Sign Up Button - CONNECTED TO AUTH! */}
+                <Link href='/auth/signin'>
+                  <button
+                    onClick={() => setIsMenuOpen(false)}
+                    className='block w-full rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 text-center text-base font-medium text-white shadow-lg transition-all duration-300 hover:from-blue-700 hover:to-blue-800'
+                  >
+                    Sign Up for Free
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

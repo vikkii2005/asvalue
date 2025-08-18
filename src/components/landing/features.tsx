@@ -84,7 +84,7 @@ export default function Features() {
             Complete Sales Platform
           </div>
 
-          <h2 className='mb-6 text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl dark:text-white'>
+          <h2 className='mb-6 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl lg:text-6xl'>
             Everything You Need
             <span className='block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-purple-400 dark:to-indigo-400'>
               To Sell Online.
@@ -134,7 +134,7 @@ export default function Features() {
         {/* CTA SECTION */}
         <div className='mt-24 text-center'>
           <div className='mx-auto max-w-4xl rounded-2xl border border-gray-300 bg-white p-12 shadow-lg dark:border-gray-700 dark:bg-gray-800'>
-            <h3 className='mb-6 text-3xl font-bold leading-tight text-gray-900 md:text-4xl dark:text-white'>
+            <h3 className='mb-6 text-3xl font-bold leading-tight text-gray-900 dark:text-white md:text-4xl'>
               Ready to Start Selling Professionally?
             </h3>
 
@@ -189,9 +189,7 @@ export default function Features() {
             <div className='mb-6'>
               <button className='inline-flex h-16 min-w-[280px] items-center justify-center rounded-xl bg-blue-600 px-10 text-lg font-bold text-white shadow-lg transition-colors hover:bg-blue-700 hover:shadow-xl'>
                 <Zap className='mr-3 h-6 w-6 flex-shrink-0' />
-                <span className='whitespace-nowrap'>
-                  Start Selling Today
-                </span>
+                <span className='whitespace-nowrap'>Start Selling Today</span>
               </button>
             </div>
 

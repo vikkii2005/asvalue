@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import {
   ArrowRight,
   Play,
@@ -13,22 +14,23 @@ import {
 
 export default function Hero() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+  const router = useRouter()
 
-  // Simple handler for demo purposes
+  // Updated handler to navigate to authentication
   const handleSignUp = () => {
-    console.log('🚀 Sign up clicked - demo mode')
-    
+    console.log('🚀 Redirecting to authentication...')
+
     // Haptic feedback if available
     if (navigator.vibrate) {
       navigator.vibrate(50)
     }
-    
-    // You can add your own logic here or leave it as a demo
-    alert('Demo mode - Sign up functionality would go here!')
+
+    // Navigate to your authentication page
+    router.push('/auth/signin')
   }
 
   return (
-    <section className='relative overflow-hidden bg-white pb-16 pt-20 md:pb-20 md:pt-32 dark:bg-gray-900'>
+    <section className='relative overflow-hidden bg-white pb-16 pt-20 dark:bg-gray-900 md:pb-20 md:pt-32'>
       {/* Background decoration */}
       <div className='absolute inset-0 opacity-20 dark:opacity-5'>
         <div
@@ -50,7 +52,7 @@ export default function Hero() {
           </div>
 
           {/* Headline */}
-          <h1 className='mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-6xl lg:text-7xl dark:text-white'>
+          <h1 className='mb-6 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-6xl lg:text-7xl'>
             From Product to{' '}
             <span className='bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-purple-400 dark:to-indigo-400'>
               Profit Machine
@@ -59,7 +61,7 @@ export default function Hero() {
           </h1>
 
           {/* Subheadline */}
-          <p className='mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-gray-600 md:text-2xl dark:text-gray-300'>
+          <p className='mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-gray-600 dark:text-gray-300 md:text-2xl'>
             Skip the complexity. Your AI sales assistant handles everything:
             customer questions, objections, and closing deals while you sleep.
           </p>
@@ -86,11 +88,11 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - MAIN BUTTON CONNECTED TO AUTH! */}
           <div className='mb-8 flex flex-col justify-center gap-4 sm:flex-row'>
             <button
               onClick={handleSignUp}
-              className='group inline-flex h-16 items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-10 text-xl font-bold text-white shadow-2xl transition-all hover:-translate-y-1 hover:from-blue-700 hover:to-purple-700 hover:shadow-3xl min-w-[300px]'
+              className='hover:shadow-3xl group inline-flex h-16 min-w-[300px] items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-10 text-xl font-bold text-white shadow-2xl transition-all hover:-translate-y-1 hover:from-blue-700 hover:to-purple-700'
             >
               <Zap className='mr-3 h-6 w-6' />
               <span className='whitespace-nowrap'>Start Selling Today</span>
@@ -123,15 +125,21 @@ export default function Hero() {
                     Wireless Pro Headphones
                   </h3>
                   <div className='mt-3 flex items-center justify-between'>
-                    <p className='text-2xl font-bold text-blue-600 dark:text-blue-400'>$199</p>
+                    <p className='text-2xl font-bold text-blue-600 dark:text-blue-400'>
+                      $199
+                    </p>
                     <span className='rounded-full bg-green-100 px-3 py-1 text-sm text-green-600 dark:bg-green-900/30 dark:text-green-400'>
                       In Stock
                     </span>
                   </div>
                   <div className='mt-4 flex items-center justify-between rounded-lg border border-blue-100 bg-blue-50 p-3 dark:border-blue-800 dark:bg-blue-900/20'>
                     <div>
-                      <span className='text-xs text-gray-500 dark:text-gray-400'>Magic Link</span>
-                      <p className='font-mono text-sm font-medium text-gray-900 dark:text-white'>WPH2024</p>
+                      <span className='text-xs text-gray-500 dark:text-gray-400'>
+                        Magic Link
+                      </span>
+                      <p className='font-mono text-sm font-medium text-gray-900 dark:text-white'>
+                        WPH2024
+                      </p>
                     </div>
                     <QrCode className='h-8 w-8 text-blue-600 dark:text-blue-400' />
                   </div>
@@ -144,25 +152,34 @@ export default function Hero() {
                       <div className='flex h-8 w-8 items-center justify-center rounded-full bg-purple-600'>
                         <Zap className='h-4 w-4 text-white' />
                       </div>
-                      <h3 className='font-semibold text-gray-900 dark:text-white'>AI Sales Options</h3>
+                      <h3 className='font-semibold text-gray-900 dark:text-white'>
+                        AI Sales Options
+                      </h3>
                     </div>
                     <div className='flex items-center space-x-1'>
                       <div className='h-2 w-2 animate-pulse rounded-full bg-green-500' />
-                      <span className='text-xs text-green-600 dark:text-green-400'>Active</span>
+                      <span className='text-xs text-green-600 dark:text-green-400'>
+                        Active
+                      </span>
                     </div>
                   </div>
 
                   <div className='space-y-3'>
                     <div className='mb-3 text-xs font-medium text-purple-600 dark:text-purple-400'>
-                      Customer Question: &apos;Tell me about these headphones&apos;
+                      Customer Question: &apos;Tell me about these
+                      headphones&apos;
                     </div>
 
                     <div className='rounded-lg border-l-4 border-blue-500 bg-white p-3 shadow-sm dark:bg-gray-900'>
                       <div className='flex items-start space-x-2'>
                         <CheckCircle className='mt-0.5 h-4 w-4 flex-shrink-0 text-blue-500' />
                         <div>
-                          <p className='text-sm font-medium text-gray-900 dark:text-white'>Sound Quality Focus</p>
-                          <p className='text-xs text-gray-600 dark:text-gray-400'>Hi-Res audio, 40mm drivers, studio-grade sound</p>
+                          <p className='text-sm font-medium text-gray-900 dark:text-white'>
+                            Sound Quality Focus
+                          </p>
+                          <p className='text-xs text-gray-600 dark:text-gray-400'>
+                            Hi-Res audio, 40mm drivers, studio-grade sound
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -171,8 +188,12 @@ export default function Hero() {
                       <div className='flex items-start space-x-2'>
                         <CheckCircle className='mt-0.5 h-4 w-4 flex-shrink-0 text-green-500' />
                         <div>
-                          <p className='text-sm font-medium text-gray-900 dark:text-white'>Comfort & Design</p>
-                          <p className='text-xs text-gray-600 dark:text-gray-400'>Lightweight, memory foam, 40hr battery life</p>
+                          <p className='text-sm font-medium text-gray-900 dark:text-white'>
+                            Comfort & Design
+                          </p>
+                          <p className='text-xs text-gray-600 dark:text-gray-400'>
+                            Lightweight, memory foam, 40hr battery life
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -181,8 +202,12 @@ export default function Hero() {
                       <div className='flex items-start space-x-2'>
                         <CheckCircle className='mt-0.5 h-4 w-4 flex-shrink-0 text-purple-500' />
                         <div>
-                          <p className='text-sm font-medium text-gray-900 dark:text-white'>Price & Value</p>
-                          <p className='text-xs text-gray-600 dark:text-gray-400'>30-day trial, 2-year warranty, free shipping</p>
+                          <p className='text-sm font-medium text-gray-900 dark:text-white'>
+                            Price & Value
+                          </p>
+                          <p className='text-xs text-gray-600 dark:text-gray-400'>
+                            30-day trial, 2-year warranty, free shipping
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -190,7 +215,9 @@ export default function Hero() {
 
                   <div className='mt-4 flex items-center justify-between rounded border border-purple-100 bg-purple-50 p-2 text-xs text-gray-500 dark:border-purple-800 dark:bg-purple-900/20 dark:text-gray-400'>
                     <span>🤖 AI analyzing customer intent...</span>
-                    <span className='font-medium text-purple-600 dark:text-purple-400'>3 options ready</span>
+                    <span className='font-medium text-purple-600 dark:text-purple-400'>
+                      3 options ready
+                    </span>
                   </div>
                 </div>
               </div>
@@ -216,8 +243,12 @@ export default function Hero() {
               <div className='flex h-full items-center justify-center text-white'>
                 <div className='text-center'>
                   <Play className='mx-auto mb-4 h-16 w-16 text-blue-400' />
-                  <p className='mb-2 text-xl font-semibold'>Demo Video Coming Soon</p>
-                  <p className='text-gray-400'>See how AI transforms your sales in real-time</p>
+                  <p className='mb-2 text-xl font-semibold'>
+                    Demo Video Coming Soon
+                  </p>
+                  <p className='text-gray-400'>
+                    See how AI transforms your sales in real-time
+                  </p>
                 </div>
               </div>
             </div>
