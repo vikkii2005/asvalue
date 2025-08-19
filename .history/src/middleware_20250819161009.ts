@@ -1,5 +1,5 @@
 // src/middleware.ts
-// UPDATED - Protect seller-setup route
+// FIXED - Let auth/success handle smart redirects
 
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
@@ -9,7 +9,7 @@ export async function middleware(request: NextRequest) {
     const sessionCookie = request.cookies.get('asvalue-authenticated')
     const hasValidSession = !!sessionCookie?.value
 
-    const isSellerSetupRoute = request.nextUrl.pathname.startsWith('/onboarding/seller-setup')
+    const isOnboardingRoute = request.nextUrl.pathname.startsWith('/onboarding')
     const isDashboardRoute = request.nextUrl.pathname.startsWith('/dashboard')
     const isMarketplaceRoute = request.nextUrl.pathname.startsWith('/marketplace')
 
@@ -19,12 +19,16 @@ export async function middleware(request: NextRequest) {
 
     // Protect routes that need authentication
     if (
-      (isDashboardRoute || isMarketplaceRoute || isSellerSetupRoute) &&
+      (isDashboardRoute || isMarketplaceRoute || isOnboardingRoute) &&
       !hasValidSession
     ) {
       console.log('🚫 Redirecting to sign in')
       return NextResponse.redirect(new URL('/auth/signin', request.url))
     }
+
+    // ✅ FIXED: Removed the problematic redirect from signin
+    // Let auth/success page handle smart redirects based on role
+    // This was causing users to bypass the role-checking logic
 
     return NextResponse.next()
   } catch (error) {
@@ -34,5 +38,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico|public/).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|public/).*)',],
 }

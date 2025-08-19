@@ -1,5 +1,5 @@
 // src/lib/api/user.ts
-// PRODUCTION READY - All TypeScript and ESLint errors fixed
+// ENHANCED - Seller profile and product APIs
 
 import { createClient } from '@supabase/supabase-js'
 
@@ -8,7 +8,7 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
-export interface ApiResponse<T = Record<string, unknown> | null> {
+export interface ApiResponse<T = Record<string, unknown>> {
   success: boolean
   data?: T
   error?: string
@@ -62,7 +62,7 @@ export const updateSellerProfile = async (
       return { success: false, error: error.message }
     }
 
-    return { success: true, data: data ?? null }
+    return { success: true, data }
   } catch (error) {
     return {
       success: false,
@@ -95,7 +95,7 @@ export const createFirstProduct = async (
       return { success: false, error: error.message }
     }
 
-    return { success: true, data: data ?? null }
+    return { success: true, data }
   } catch (error) {
     return {
       success: false,
@@ -126,7 +126,7 @@ export const setupPaymentMethod = async (
       return { success: false, error: error.message }
     }
 
-    return { success: true, data: data ?? null }
+    return { success: true, data }
   } catch (error) {
     return {
       success: false,
@@ -191,7 +191,7 @@ export const getUserProfile = async (userId: string): Promise<ApiResponse> => {
       return { success: false, error: error.message }
     }
 
-    return { success: true, data: data ?? null }
+    return { success: true, data }
   } catch (error) {
     return {
       success: false,
