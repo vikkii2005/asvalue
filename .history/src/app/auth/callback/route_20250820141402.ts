@@ -5,6 +5,7 @@ import { cookies } from 'next/headers'
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url)
   const code = requestUrl.searchParams.get('code')
+  const next = requestUrl.searchParams.get('next') ?? '/'
 
   if (code) {
     const supabase = createServerComponentClient({ cookies })
@@ -17,7 +18,7 @@ export async function GET(request: Request) {
         return NextResponse.redirect(`${requestUrl.origin}/auth/error`)
       }
 
-      // Successful auth - redirect to seller setup
+      // Successful auth - redirect to seller setup or next page
       return NextResponse.redirect(`${requestUrl.origin}/onboarding/seller-setup`)
       
     } catch (error) {

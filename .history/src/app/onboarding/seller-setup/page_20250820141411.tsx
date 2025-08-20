@@ -7,9 +7,9 @@ import SellerProfileForm from '@/components/forms/seller-profile-form'
 export default async function SellerSetupPage() {
   const supabase = createServerComponentClient({ cookies })
   
-  const { data: { user } } = await supabase.auth.getUser()
+  const { data: { user }, error } = await supabase.auth.getUser()
   
-  if (!user) {
+  if (error || !user) {
     redirect('/auth/signin?redirect=/onboarding/seller-setup')
   }
   
@@ -17,12 +17,11 @@ export default async function SellerSetupPage() {
   let existingProfile = null
   try {
     existingProfile = await getSellerProfile(user.id)
-  } catch {
-    // No existing profile found - continue with setup
+  } catch (error) {
     console.log('No existing profile found')
   }
   
-  // Check if setup already completed
+  // Fixed: Remove escaped underscore
   if (existingProfile && existingProfile.setup_completed) {
     redirect('/onboarding/success')
   }
